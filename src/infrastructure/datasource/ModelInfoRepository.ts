@@ -24,6 +24,8 @@ export class ModelInfoRepository implements IModelInfoRepository{
 		} catch(e){
 			await db.rollback();
 			throw e;
+		} finally {
+			await db.release();
 		}
 	}
 
@@ -56,6 +58,8 @@ export class ModelInfoRepository implements IModelInfoRepository{
 			return new ModelInfo(res.model_id, res.model_url, res.model_name, vrm, res.is_published, res.internal_user_id);
 		} catch(e){
 			throw e;
+		} finally {
+			await db.release();
 		}
 	}
 }
