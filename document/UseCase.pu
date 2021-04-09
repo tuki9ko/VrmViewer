@@ -1,0 +1,20 @@
+@startuml UseCase
+
+left to right direction
+actor ViewUser as vu
+actor User as u
+
+package VRMViewer{
+	usecase "モデルを閲覧する" as uc1
+	usecase "モデルをアップロードする" as uc2
+	usecase "モデルを更新する" as uc3
+	usecase "モデルを削除する" as uc4
+}
+
+vu --> uc1
+u --> uc1
+u --> uc2
+u --> uc3
+u --> uc4
+
+@enduml
