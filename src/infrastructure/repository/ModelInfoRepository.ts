@@ -1,5 +1,5 @@
 import { VRM } from "@pixiv/three-vrm";
-import { PromiseGLTFLoader } from "./PromiseGLTFLoader";
+import { PromiseGLTFLoader } from "./../loader/PromiseGLTFLoader";
 
 import { Postgres } from "./Postgres"
 import { ModelInfo } from "../../domain/model/ModelInfo";
