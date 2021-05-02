@@ -11,7 +11,6 @@ export class ModelInfo{
 	private _modelId: string;
 	private _modelUrl: string;
 	private _modelName: string;
-	private _model: VRM;
 	private _isPublished: boolean;
 	private _internalUserId: string;
 
@@ -25,8 +24,8 @@ export class ModelInfo{
 	 * @param internalUserId 
 	 * @throws {ArgumentError}
 	 */
-	 constructor(modelId: string, modelUrl: string, modelName: string, model: VRM, isPublished: boolean, internalUserId: string){
-		if(!modelUrl || !modelName || !model || !internalUserId){
+	 constructor(modelId: string, modelUrl: string, modelName: string, isPublished: boolean, internalUserId: string){
+		if(!modelUrl || !modelName || !internalUserId){
 			throw new ArgumentError("Not enough arguments.");
 		}
 
@@ -55,8 +54,8 @@ export class ModelInfo{
 			this._modelId = nanoid(16);
 		}
 		this._modelUrl = modelUrl;
-		this._modelName = modelName
-		this._model = model;
+		this._modelName = modelName;
+		
 		if(isPublished){
 			this._isPublished = isPublished;
 		} else {
@@ -83,10 +82,6 @@ export class ModelInfo{
 
 	get modelName(): string{
 		return this._modelName;
-	}
-
-	get model(): VRM{
-		return this._model;
 	}
 
 	get isPublished(): boolean{
