@@ -3,17 +3,28 @@
 class ModelInfo{
 	modelId: string
 	modelUrl: string
-	model: VRM
+	modelName: string
 	isPublished: boolean
 	internalUserId: string
 }
+
 class User{
 	userId: string
+	password: string
 	internalUserId: string
 }
 
+class ViewUser{
+	viewUserId: string
+	password: string
+	expireDate: date
+	isEnable: boolean
+}
+
 ModelInfo "0..n" --> "0..1" User
-note right of ModelInfo: ・isPublishedは公開・非公開ステータスで、公開からスタートする
-note right of User: ・userIdはログインにのみ使用し、モデルとの対応はinternalUserIdを使用する\n・internalUserIdは乱数で生成する
+ViewUser "0..n" --* "1" User
+
+note left of ModelInfo: ・isPublishedは公開・非公開ステータスで、公開からスタートする
+note left of User: ・userIdはログインにのみ使用し、モデルとの対応はinternalUserIdを使用する\n・internalUserIdは乱数で生成する
 
 @enduml

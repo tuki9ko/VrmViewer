@@ -5,16 +5,22 @@ actor ViewUser as vu
 actor User as u
 
 package VRMViewer{
+	usecase "ログインする" as uc6
 	usecase "モデルを閲覧する" as uc1
 	usecase "モデルをアップロードする" as uc2
 	usecase "モデルを更新する" as uc3
 	usecase "モデルを削除する" as uc4
+	usecase "閲覧ユーザを作成する" as uc5
 }
 
+vu --> uc6
+vu --> uc1
 vu --> uc1
 u --> uc1
 u --> uc2
 u --> uc3
 u --> uc4
+u --> uc5
+u --> uc6
 
 @enduml
